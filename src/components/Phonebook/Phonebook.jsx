@@ -6,7 +6,7 @@ import ContactList from './ContactList';
 import Filter from './Filter';
 import Section from '../../shared/Section'
 
-import s from './styles.module.css';
+import s from './styles.module.css'
 
 class Phonebook extends Component {
   state = {
