@@ -19,6 +19,22 @@ class Phonebook extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const contact = localStorage.getItem("contacts")
+    if (contact && JSON.parse(contact).length) {
+      this.setState({
+        contacts: JSON.parse(contact)
+      })
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.contacts.length !== this.state.length) {
+      const {contacts} = this.state
+      localStorage.setItem("contacts", JSON.stringify(contacts))
+    }
+  }
+
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value,
