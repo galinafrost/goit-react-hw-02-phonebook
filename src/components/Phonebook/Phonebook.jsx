@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
 
 import ContactAddForm from './ContactAddForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
+import Section from '../../shared/Section'
 
 import s from './styles.module.css';
 
@@ -85,12 +85,14 @@ class Phonebook extends Component {
     return (
       <div className={s.contact}>
         <h1>Phonebook</h1>
-        <div>
+        <Section>
           <ContactAddForm onSubmit={this.addContact} />
-        </div>
+          </Section>
+          <Section>
         <h2>Contact</h2>
         <Filter filter={filter} handleChange={handleChange} />
         <ContactList removeContact={removeContact} contacts={filtrContact} />
+        </Section>
       </div>
     );
   }
